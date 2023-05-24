@@ -1,6 +1,6 @@
 <template lang="pug">
 nuxt-link(:to="`/filmes/${id}`")
-  .container-card(:class="isBig ? 'container-card' : 'container-small'" , :style="image ? style : ''")
+  .container-card-list( :style="image ? style : ''")
     .infos
       p.title {{title}}
       p.year {{year}}
@@ -9,7 +9,7 @@ nuxt-link(:to="`/filmes/${id}`")
 
 <script>
 export default {
-  name: "CardFilme",
+  name: "CardFilmeList",
   data() {
     return {
       text: "Assistir",
@@ -21,7 +21,6 @@ export default {
     image: String,
     title: String,
     year: String,
-    isBig: Boolean,
     infoDropdown: Array,
     id: Number,
   },
@@ -40,9 +39,9 @@ export default {
 </script>
 
 <style scoped>
-.container-card {
-  width: 24.813rem;
-  height: 32.875rem;
+.container-card-list {
+  width: 10rem;
+  height: 12rem;
   border-radius: 8px;
   display: flex;
   align-items: flex-end;
@@ -50,17 +49,17 @@ export default {
   transition: transform 0.3s ease;
 }
 
-a .container-card:hover {
+a .container-card-list:hover {
   transform: scale(1.05);
 }
 
 @media (max-width: 992px) {
-  .container-card {
+  .container-card-list {
     width: 100%;
   }
 }
 
-a .container-card .infos {
+a .container-card-list .infos {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -68,29 +67,29 @@ a .container-card .infos {
   margin-right: 23px;
 }
 
-a .container-card .infos p {
+a .container-card-list .infos p {
   font-family: "Montserrat", sans-serif;
   color: #ffffff;
   margin: 0;
 }
 
-a .container-card .infos .title {
+a .container-card-list .infos .title {
   font-weight: bold;
 }
 
-a .container-card .infos .year {
+a .container-card-list .infos .year {
   opacity: 60%;
 }
 
-a .container-card .infos .links {
+a .container-card-list .infos .links {
   display: flex;
 }
 
-a .container-card .infos .links .trailer {
+a .container-card-list .infos .links .trailer {
   pointer-events: none;
 }
 
-a .container-card .infos .links .trailer .dropdown-toggle::after {
+a .container-card-list .infos .links .trailer .dropdown-toggle::after {
   display: none;
 }
 

@@ -4,11 +4,11 @@
     .container
         .content-1
           template(v-for='(info, index) in infoCard')
-            CardFilme(v-if="index%2 == 0" :title='info.title' :year='info.infoYear' :isBig="info.isBig" :image="info.src")
+            CardFilme(v-if="index%2 == 0" :title='info.title' :year='info.infoYear' :isBig="info.isBig" :image="info.src" :id="info.id")
         .content-2
           template(v-for='(info, index) in infoCard')
-            CardFilme(v-if="index%2 != 0" :title='info.title' :year='info.infoYear' :isBig="info.isBig" :image="info.src")
-    button(class="custom-button" @click="redirectToFilmes") Ir para Filmes
+            CardFilme(v-if="index%2 != 0" :title='info.title' :year='info.infoYear' :isBig="info.isBig" :image="info.src" :id="info.id")
+    button(class="custom-button" @click="redirectToFilmes") catálogo completo
 </template>
 
 <script>
@@ -25,24 +25,28 @@ export default {
           infoYear: "2h20m • 2020",
           src: require("../assets/images/ceu.png"),
           isBig: true,
+          id: 1,
         },
         {
           title: "Love And Monters",
           infoYear: "2h20m • 2020",
           src: require("../assets/images/love.png"),
-          isBig: true,
+          isBig: false,
+          id: 2,
         },
         {
           title: "Another Round",
           infoYear: "2h20m • 2020",
           src: require("../assets/images/another.png"),
           isBig: false,
+          id: 3,
         },
         {
           title: "Emma",
           infoYear: "2h20m • 2020",
           src: require("../assets/images/emma.png"),
-          isBig: false,
+          isBig: true,
+          id: 4,
         },
       ],
     };
@@ -84,7 +88,7 @@ body {
 
 .home .container {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .home .container .content-1,
